@@ -1,8 +1,8 @@
-## Project One
+### Project One
 
 # Mario VS Luigi: The Epic battle of the Duo
 
-## Premise
+### Premise
 
 GAME LOGIC ~
 
