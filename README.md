@@ -10,12 +10,20 @@ This game is about Mario VS Luigi. Each Player Mario/Luigi will have 10 lifebar 
 
 ##### As a user I want to
 
-GAME LOGIC ~
+- Player one got to choose which Character he/she wants to play
+- Be able to click on the start game button
+- See the player one and two on the opposite side
+- See the current lifebar / HP Status of the players
+- Player can move up, down, left and right
+- Player can shoot fireballs to the opponent
+- Player move to dodge the fireballs shot by the opponent
+- See the fireballs being shot by the players.
+- Receive a win message after hitting the opponent with one lifebar left
+- See an option to play again and have the game reset when option got selected
 
-- Each Player will have the ability to move up, down, left and right to avoid the fireballs shot by the opponent and also shoot their fireballs in a different x axis position.
+### Technologies Used
 
-Create a Player class
-Create an instance of Player class for both of the players
-
-Player class will consist of these variables and methods below
-healthBar, position (x, y), height, width.
+- HTML
+- CSS
+- JavaScript
+- Canvas
