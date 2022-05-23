@@ -48,7 +48,7 @@ window.addEventListener('DOMContentLoaded', (e) => {
       this.draw();
 
       //? Condition below is use to add gravity to the player object, by adjusting the velocity of the player object.
-      if (this.position.y + this.height + this.velocity.y <= canvas.height) {
+      if (this.position.y + this.height + this.velocity.y + 30 <= canvas.height) {
         this.velocity.y += gravity;
       } else this.velocity.y = 0;
     }
