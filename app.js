@@ -8,6 +8,7 @@ const marioFireball = new Image();
 const luigiFireball = new Image();
 const fireballSound = new Audio('./sounds/fireball-sound.mp3');
 let marioBgMusic = new Audio('./sounds/mario-bg-music.mp3');
+let marioJump = new Audio('./sounds/mario-jump.mp3');
 marioImg.src = './images/mario-front.png';
 luigiImg.src = './images/luigi-front.png';
 marioFireball.src = './images/fireball.png';
@@ -48,7 +49,10 @@ window.addEventListener('DOMContentLoaded', (e) => {
       this.draw();
 
       //? Condition below is use to add gravity to the player object, by adjusting the velocity of the player object.
-      if (this.position.y + this.height + this.velocity.y + 30 <= canvas.height) {
+      if (
+        this.position.y + this.height + this.velocity.y + 30 <=
+        canvas.height
+      ) {
         this.velocity.y += gravity;
       } else this.velocity.y = 0;
     }
@@ -140,6 +144,7 @@ window.addEventListener('DOMContentLoaded', (e) => {
           break;
 
         case 38:
+          marioJump.play();
           console.log('Up');
           luigiImg.src = './images/luigi-fly.png';
           luigi.velocity.y -= 20;
@@ -170,6 +175,7 @@ window.addEventListener('DOMContentLoaded', (e) => {
           break;
 
         case 87:
+          marioJump.play();
           console.log('Up');
           marioImg.src = './images/mario-fly.png';
           mario.velocity.y -= 20;
