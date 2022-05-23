@@ -52,7 +52,7 @@ window.addEventListener('DOMContentLoaded', (e) => {
         this.velocity.y += gravity;
       } else this.velocity.y = 0;
     }
-  }
+  } //! End of Player class ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~>
 
   //* Instantiate Mario object
   const mario = new Player(
@@ -80,13 +80,65 @@ window.addEventListener('DOMContentLoaded', (e) => {
   });
 
   //? A Function to constantly render the players and fireballs using the requestAnimationFrame built in function (Works the same as a recursion).
-//? Invokes the update method for each player to constantly display the changes on the players' position.
+  //? Invokes the update method for each player to constantly display the changes on the players' position.
   const animate = () => {
     window.requestAnimationFrame(animate);
     c.clearRect(0, 0, canvas.width, canvas.height);
     mario.update();
     luigi.update();
+
   }; //! END OF ANIMATE FUNCTION ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~>
 
   animate();
-}); //! End of Player class ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~>
+
+  window.addEventListener('keydown', ({ keyCode }) => {
+    console.log(keyCode);
+    switch (keyCode) {
+      case 37:
+        console.log('left');
+        luigi.position.x -= 20;
+
+        break;
+      case 40:
+        console.log('Down');
+        break;
+      case 39:
+        console.log('Right');
+        luigi.position.x += 20;
+        break;
+
+      case 38:
+        console.log('Up');
+        luigi.velocity.y -= 20;
+        break;
+
+      case 17:
+        console.log('Luigi Shoot');
+        break;
+
+      case 32:
+        console.log('shooot');
+        break;
+      case 65:
+        console.log('mario left');
+        mario.position.x -= 20;
+        break;
+      case 83:
+        console.log('Down');
+        break;
+      case 68:
+        console.log('Right');
+        mario.position.x += 20;
+        break;
+
+      case 87:
+        console.log('Up');
+        mario.velocity.y -= 20;
+        break;
+
+      default:
+        break;
+    }
+  }); //! END OF KEYDOWN EVENTLISTENER ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~>
+
+}); //! END OF DOMContentLoaded eventListener ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~>
