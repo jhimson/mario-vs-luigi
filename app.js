@@ -1,6 +1,6 @@
 const canvas = document.querySelector('canvas');
 const c = canvas.getContext('2d');
-// Hide the canvas in the intialize load of the game.
+//* Hide the canvas in the intialize load of the game.
 canvas.classList.add('hidden');
 const marioImg = new Image();
 const luigiImg = new Image();
@@ -36,9 +36,18 @@ window.addEventListener('DOMContentLoaded', (e) => {
         this.height
       );
     }
+
+    //? A function to update the x and y position of the player object using the velocity property.
+    update() {
+        this.position.x += this.velocity.x;
+        this.position.y += this.velocity.y;
+        //? Calls the draw method to apply the updated position.
+        this.draw();
+        
+      }
   }
 
-  //? Instantiate Mario object
+  //* Instantiate Mario object
   const mario = new Player(
     marioImg,
     { x: 100, y: 100 },
@@ -47,7 +56,7 @@ window.addEventListener('DOMContentLoaded', (e) => {
     200
   );
 
-  //? Instantiate Luigi object
+  //* Instantiate Luigi object
   const luigi = new Player(
     luigiImg,
     { x: 1500, y: 100 },
@@ -55,10 +64,15 @@ window.addEventListener('DOMContentLoaded', (e) => {
     200,
     200
   );
-
   startBtn.addEventListener('click', (e) => {
-    marioBgMusic.play();
+    // marioBgMusic.play();
     canvas.classList.remove('hidden');
     startBtn.classList.add('hidden');
+    mario.position.y = 0;
+    luigi.position.y = 0;
   });
+
+
+ 
+
 }); //! End of Player class ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~>
