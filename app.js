@@ -17,6 +17,9 @@ const startBtn = document.getElementById('start-button');
 canvas.width = innerWidth;
 canvas.height = innerHeight;
 
+//? Use to the set the value of the player's gravity.
+const gravity = 0.5;
+
 window.addEventListener('DOMContentLoaded', (e) => {
   class Player {
     constructor(url, position, velocity, height, width) {
@@ -44,6 +47,10 @@ window.addEventListener('DOMContentLoaded', (e) => {
         //? Calls the draw method to apply the updated position.
         this.draw();
         
+        //? Condition below is use to add gravity to the player object, by adjusting the velocity of the player object.
+        if (this.position.y + this.height + this.velocity.y <= canvas.height) {
+            this.velocity.y += gravity;
+          } else this.velocity.y = 0;
       }
   }
 
