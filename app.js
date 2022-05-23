@@ -1,6 +1,6 @@
 const canvas = document.querySelector('canvas');
 const c = canvas.getContext('2d');
-
+canvas.classList.add('hidden');
 const marioImg = new Image();
 const luigiImg = new Image();
 const marioFireball = new Image();
