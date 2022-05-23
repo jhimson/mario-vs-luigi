@@ -151,11 +151,13 @@ window.addEventListener('DOMContentLoaded', (e) => {
           break;
 
         case 17:
+          fireballSound.play();
           console.log('Luigi Shoot');
           luigiImg.src = './images/luigi-shoot-2.png';
           break;
 
         case 32:
+          fireballSound.play();
           console.log('shooot');
           marioImg.src = './images/mario-fireball-2.png';
           break;
