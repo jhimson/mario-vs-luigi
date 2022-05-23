@@ -37,3 +37,21 @@ window.addEventListener('DOMContentLoaded', (e) => {
     
     }
 }); //! End of Player class ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~>
+
+//? Instantiate Mario object
+const mario = new Player(
+    marioImg,
+    { x: 100, y: 100 },
+    { x: 0, y: 0 },
+    200,
+    200
+  );
+
+  //? Instantiate Luigi object
+  const luigi = new Player(
+    luigiImg,
+    { x: 1500, y: 100 },
+    { x: 0, y: 0 },
+    200,
+    200
+  );
