@@ -23,6 +23,16 @@ window.addEventListener('DOMContentLoaded', (e) => {
         this.height = height;
         this.width = width;
         }
+
+        draw() {
+            c.drawImage(
+              this.url,
+              this.position.x,
+              this.position.y,
+              this.width,
+              this.height
+            );
+          }
     
     }
 }); //! End of Player class ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~>
