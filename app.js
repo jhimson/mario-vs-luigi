@@ -203,6 +203,9 @@ window.addEventListener('DOMContentLoaded', (e) => {
 
         case 17:
           console.log('Shoot');
+          setTimeout(() => {
+            luigiImg.src = './images/luigi-front.png';
+          }, 500);
           break;
 
         case 65:
