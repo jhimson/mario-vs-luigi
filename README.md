@@ -10,7 +10,6 @@ This game is about Mario VS Luigi. Each Player Mario/Luigi will have 10 lifebar 
 
 ##### As a user I want to
 
-- Player one got to choose which Character he/she wants to play
 - Be able to click on the start game button
 - See the player one and two on the opposite side
 - See the current lifebar / HP Status of the players
