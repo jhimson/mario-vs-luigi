@@ -11,4 +11,5 @@ luigiImg.src = './images/luigi-front.png';
 marioFireball.src = './images/fireball.png';
 luigiFireball.src = './images/fireball-2.png';
 
-
+canvas.width = innerWidth;
+canvas.height = innerHeight;
