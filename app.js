@@ -79,6 +79,25 @@ window.addEventListener('DOMContentLoaded', (e) => {
     luigi.position.y = 0;
   });
 
+  const keys = {
+    mario: {
+      right: {
+        pressed: false,
+      },
+      left: {
+        pressed: false,
+      },
+    },
+    luigi: {
+      right: {
+        pressed: false,
+      },
+      left: {
+        pressed: false,
+      },
+    },
+  };
+
   //? A Function to constantly render the players and fireballs using the requestAnimationFrame built in function (Works the same as a recursion).
   //? Invokes the update method for each player to constantly display the changes on the players' position.
   const animate = () => {
@@ -87,6 +106,19 @@ window.addEventListener('DOMContentLoaded', (e) => {
     mario.update();
     luigi.update();
 
+    //? This condition below will accelerate the left and right control for Mario object player by increasing and decreasing the x velocity. To avoid keep on pressing the left and right controls many times.
+    if (keys.mario.right.pressed) {
+      mario.velocity = { ...mario.velocity, x: 5 };
+    } else if (keys.mario.left.pressed) {
+      mario.velocity = { ...mario.velocity, x: -5 };
+    } else mario.velocity = { ...mario.velocity, x: 0 };
+
+    //? This condition below will accelerate the left and right control for Luigi object player by increasing and decreasing the x velocity. To avoid keep on pressing the left and right controls many times.
+    if (keys.luigi.right.pressed) {
+      luigi.velocity = { ...luigi.velocity, x: 5 };
+    } else if (keys.luigi.left.pressed) {
+      luigi.velocity = { ...luigi.velocity, x: -5 };
+    } else luigi.velocity = { ...luigi.velocity, x: 0 };
   }; //! END OF ANIMATE FUNCTION ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~>
 
   animate();
@@ -96,7 +128,7 @@ window.addEventListener('DOMContentLoaded', (e) => {
     switch (keyCode) {
       case 37:
         console.log('left');
-        luigi.position.x -= 20;
+        keys.luigi.left.pressed = true;
 
         break;
       case 40:
@@ -104,7 +136,7 @@ window.addEventListener('DOMContentLoaded', (e) => {
         break;
       case 39:
         console.log('Right');
-        luigi.position.x += 20;
+        keys.luigi.right.pressed = true;
         break;
 
       case 38:
@@ -121,14 +153,14 @@ window.addEventListener('DOMContentLoaded', (e) => {
         break;
       case 65:
         console.log('mario left');
-        mario.position.x -= 20;
+        keys.mario.left.pressed = true;
         break;
       case 83:
         console.log('Down');
         break;
       case 68:
         console.log('Right');
-        mario.position.x += 20;
+        keys.mario.right.pressed = true;
         break;
 
       case 87:
@@ -140,5 +172,4 @@ window.addEventListener('DOMContentLoaded', (e) => {
         break;
     }
   }); //! END OF KEYDOWN EVENTLISTENER ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~>
-
 }); //! END OF DOMContentLoaded eventListener ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~>
