@@ -27,4 +27,9 @@ This game is about Mario VS Luigi. Each Player Mario/Luigi will have 10 lifebar 
 - JavaScript
 - Canvas
 
-# Wireframes
+# Wireframes:
+
+![Page 1](https://user-images.githubusercontent.com/42398487/169837028-52f56554-d42c-47df-81a0-348c40e4c7ba.png)
+![Page 2](https://user-images.githubusercontent.com/42398487/169837058-d51e89e2-b639-4383-95dc-d4907629c443.png)
+![page 3](https://user-images.githubusercontent.com/42398487/169837070-9c819042-2ea7-4d99-8356-d3831fef11d6.png)
+
