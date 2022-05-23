@@ -42,16 +42,16 @@ window.addEventListener('DOMContentLoaded', (e) => {
 
     //? A function to update the x and y position of the player object using the velocity property.
     update() {
-        this.position.x += this.velocity.x;
-        this.position.y += this.velocity.y;
-        //? Calls the draw method to apply the updated position.
-        this.draw();
-        
-        //? Condition below is use to add gravity to the player object, by adjusting the velocity of the player object.
-        if (this.position.y + this.height + this.velocity.y <= canvas.height) {
-            this.velocity.y += gravity;
-          } else this.velocity.y = 0;
-      }
+      this.position.x += this.velocity.x;
+      this.position.y += this.velocity.y;
+      //? Calls the draw method to apply the updated position.
+      this.draw();
+
+      //? Condition below is use to add gravity to the player object, by adjusting the velocity of the player object.
+      if (this.position.y + this.height + this.velocity.y <= canvas.height) {
+        this.velocity.y += gravity;
+      } else this.velocity.y = 0;
+    }
   }
 
   //* Instantiate Mario object
@@ -79,7 +79,14 @@ window.addEventListener('DOMContentLoaded', (e) => {
     luigi.position.y = 0;
   });
 
+  //? A Function to constantly render the players and fireballs using the requestAnimationFrame built in function (Works the same as a recursion).
+//? Invokes the update method for each player to constantly display the changes on the players' position.
+  const animate = () => {
+    window.requestAnimationFrame(animate);
+    c.clearRect(0, 0, canvas.width, canvas.height);
+    mario.update();
+    luigi.update();
+  }; //! END OF ANIMATE FUNCTION ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~>
 
- 
-
+  animate();
 }); //! End of Player class ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~>
