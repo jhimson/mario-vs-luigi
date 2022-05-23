@@ -13,3 +13,16 @@ luigiFireball.src = './images/fireball-2.png';
 
 canvas.width = innerWidth;
 canvas.height = innerHeight;
+
+window.addEventListener('DOMContentLoaded', (e) => {
+  class Player {
+        constructor(url, position, velocity, height, width) {
+        this.url = url;
+        this.position = position;
+        this.velocity = velocity;
+        this.height = height;
+        this.width = width;
+        }
+    
+    }
+}); //! End of Player class ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~>
