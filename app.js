@@ -128,7 +128,7 @@ window.addEventListener('DOMContentLoaded', (e) => {
         case 37:
           console.log('left');
           keys.luigi.left.pressed = true;
-
+          luigiImg.src = './images/luigi-left.png';
           break;
         case 40:
           console.log('Down');
@@ -136,34 +136,42 @@ window.addEventListener('DOMContentLoaded', (e) => {
         case 39:
           console.log('Right');
           keys.luigi.right.pressed = true;
+          luigiImg.src = './images/luigi-right.png';
           break;
 
         case 38:
           console.log('Up');
+          luigiImg.src = './images/luigi-fly.png';
           luigi.velocity.y -= 20;
           break;
 
         case 17:
           console.log('Luigi Shoot');
+          luigiImg.src = './images/luigi-shoot-2.png';
           break;
 
         case 32:
           console.log('shooot');
+          marioImg.src = './images/mario-fireball-2.png';
           break;
         case 65:
           console.log('mario left');
+          marioImg.src = './images/mario-left.png';
           keys.mario.left.pressed = true;
+
           break;
         case 83:
           console.log('Down');
           break;
         case 68:
           console.log('Right');
+          marioImg.src = './images/mario-right.png';
           keys.mario.right.pressed = true;
           break;
 
         case 87:
           console.log('Up');
+          marioImg.src = './images/mario-fly.png';
           mario.velocity.y -= 20;
           break;
 
