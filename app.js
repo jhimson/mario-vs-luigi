@@ -5,6 +5,7 @@ const marioImg = new Image();
 const luigiImg = new Image();
 const marioFireball = new Image();
 const luigiFireball = new Image();
+const fireballSound = new Audio('./sound/fireball-sound.mp3');
 marioImg.src = './images/mario-front.png';
 luigiImg.src = './images/luigi-front.png';
 marioFireball.src = './images/fireball.png';
