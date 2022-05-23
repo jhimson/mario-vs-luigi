@@ -224,10 +224,16 @@ window.addEventListener('DOMContentLoaded', (e) => {
 
         case 87:
           console.log('Up');
+          setTimeout(() => {
+            marioImg.src = './images/mario-front.png';
+          }, 400);
           break;
 
         case 32:
           console.log('Shoot');
+          setTimeout(() => {
+            marioImg.src = './images/mario-front.png';
+          }, 500);
           break;
 
         default:
