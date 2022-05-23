@@ -4,7 +4,7 @@
 
 ### Premise
 
-This game is about Mario VS Luigi. Each Player Mario/Luigi will have 10 lifebar and have the ability to shoot fire-ball to each other and then when a player gets hit with the fire ball, the player's lifebar will decrease by one. Whoever lost all their lives will lose the game.
+Mario and Luigi had a misunderstanding and resulted into challenging each other into a fireball fight!
 
 ### User Story
 
