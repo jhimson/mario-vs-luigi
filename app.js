@@ -169,6 +169,11 @@ window.addEventListener('DOMContentLoaded', (e) => {
           console.log('Luigi got hit');
           luigiImg.src = './images/luigi-hit.png';
           luigiHitSound.play();
+          setTimeout(() => {
+            luigiImg.src = './images/luigi-front.png';
+            luigi.position.y = 0;
+            luigi.position.x = 1800;
+          }, 500);
         }
 
         if (
@@ -184,6 +189,11 @@ window.addEventListener('DOMContentLoaded', (e) => {
           console.log('Mario got hit');
           marioImg.src = './images/mario-hit.png';
           marioHitSound.play();
+          setTimeout(() => {
+            marioImg.src = './images/mario-front.png';
+            mario.position.y = 0;
+            mario.position.x = 100;
+          }, 500);
         }
       }); //! END OF FOREACH ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~>
       //? This condition below will accelerate the left and right control for Mario object player by increasing and decreasing the x velocity. To avoid keep on pressing the left and right controls many times.
