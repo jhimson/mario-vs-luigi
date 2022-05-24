@@ -5,6 +5,7 @@ canvas.classList.add('hidden');
 let winningMessage = document.getElementById('winningMessage');
 let winingMessageText = document.querySelector('[data-winning-message-text]');
 let restartButton = document.getElementById('restartButton');
+let introImage = document.getElementById('intro');
 let marioHealth = 5;
 let luigiHealth = 5;
 const marioImg = new Image();
@@ -28,6 +29,8 @@ const startBtn = document.getElementById('start-button');
 canvas.width = innerWidth;
 canvas.height = innerHeight;
 const projectilesArray = [];
+const marioDefaultPosition = { x: 100, y: 0 };
+const luigiDefaultPosition = { x: 1600, y: 0 };
 
 //? Use to the set the value of the player's gravity.
 const gravity = 0.5;
@@ -64,7 +67,7 @@ window.addEventListener('DOMContentLoaded', (e) => {
 
       //? Condition below is use to add gravity to the player object, by adjusting the velocity of the player object.
       if (
-        this.position.y + this.height + this.velocity.y + 30 <=
+        this.position.y + this.height + this.velocity.y + 60 <=
         canvas.height
       ) {
         this.velocity.y += gravity;
@@ -116,7 +119,7 @@ window.addEventListener('DOMContentLoaded', (e) => {
   //* Instantiate Mario object
   const mario = new Player(
     marioImg,
-    { x: 100, y: 100 },
+    marioDefaultPosition,
     { x: 0, y: 0 },
     200,
     200
@@ -125,7 +128,7 @@ window.addEventListener('DOMContentLoaded', (e) => {
   //* Instantiate Luigi object
   const luigi = new Player(
     luigiImg,
-    { x: 1800, y: 100 },
+    luigiDefaultPosition,
     { x: 0, y: 0 },
     200,
     200
@@ -135,6 +138,7 @@ window.addEventListener('DOMContentLoaded', (e) => {
     marioBgMusic.play();
     canvas.classList.remove('hidden');
     startBtn.classList.add('hidden');
+    introImage.classList.add('hidden');
     mario.position.y = 0;
     luigi.position.y = 0;
 
@@ -192,7 +196,7 @@ window.addEventListener('DOMContentLoaded', (e) => {
             luigiImg.src = './images/luigi-front.png';
 
             luigi.position.y = 0;
-            luigi.position.x = 1800;
+            luigi.position.x = 1600;
           }, 500);
         }
 
@@ -399,8 +403,8 @@ window.addEventListener('DOMContentLoaded', (e) => {
       winningMessage.classList.remove('show');
       marioBgMusic.play();
       window.addEventListener('keydown', keyDownHandler);
-      mario.position = { x: 100, y: 0 };
-      luigi.position = { x: 1800, y: 0 };
+      mario.position = marioDefaultPosition;
+      luigi.position = luigiDefaultPosition;
       marioHealth = 5;
       luigiHealth = 5;
       console.log(marioHealth);
