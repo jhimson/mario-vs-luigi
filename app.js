@@ -17,6 +17,7 @@ const startBtn = document.getElementById('start-button');
 
 canvas.width = innerWidth;
 canvas.height = innerHeight;
+const projectilesArray = [];
 
 //? Use to the set the value of the player's gravity.
 const gravity = 0.5;
@@ -131,6 +132,9 @@ window.addEventListener('DOMContentLoaded', (e) => {
       c.clearRect(0, 0, canvas.width, canvas.height);
       mario.update();
       luigi.update();
+      projectilesArray.forEach((projectile, index) => {
+        projectile.update();
+      });
       //? This condition below will accelerate the left and right control for Mario object player by increasing and decreasing the x velocity. To avoid keep on pressing the left and right controls many times.
       if (keys.mario.right.pressed) {
         mario.velocity = { ...mario.velocity, x: 5 };
@@ -175,12 +179,38 @@ window.addEventListener('DOMContentLoaded', (e) => {
           fireballSound.play();
           console.log('Luigi Shoot');
           luigiImg.src = './images/luigi-shoot-2.png';
+          projectilesArray.push(
+            new Projectile(
+              luigiFireball,
+              //? The x position of the fireball has to be less than the current position of luigi to avoid instant self collision of the fireball when luigi shoots it to Mario. (luigi.position.x - luigi.width)
+              luigi.position.x - luigi.width,
+              luigi.position.y,
+              200,
+              200,
+              { x: -10, y: 0 }
+            )
+          );
+          console.log(projectilesArray);
           break;
 
         case 32:
           fireballSound.play();
           console.log('shooot');
           marioImg.src = './images/mario-fireball-2.png';
+          projectilesArray.push(
+            //? The x position of the fireball has to be greather than the current position of Mario to avoid instant self collision of the fireball when Mario shoots it to Luigi. (luigi.position.x - luigi.width)
+            new Projectile(
+              marioFireball,
+              mario.position.x + mario.width,
+              mario.position.y,
+              200,
+              200,
+              {
+                x: 10,
+                y: 0,
+              }
+            )
+          );
           break;
         case 65:
           console.log('mario left');
