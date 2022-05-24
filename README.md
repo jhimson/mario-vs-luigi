@@ -24,7 +24,7 @@ Mario and Luigi had a misunderstanding and resulted into challenging each other 
 
 - HTML
 - CSS
-- JavaScript
+- JavaScript (DOM Manipulation)
 - Canvas
 
 # Wireframes:
