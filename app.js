@@ -132,8 +132,19 @@ window.addEventListener('DOMContentLoaded', (e) => {
       c.clearRect(0, 0, canvas.width, canvas.height);
       mario.update();
       luigi.update();
+      // ! GARBAGE COLLECTION FUNCTIONALITY
       projectilesArray.forEach((projectile, index) => {
-        projectile.update();
+        //? Condition to remove the projectile/fireball object from the array of projectiles whenever the fireball shot by Luigi exits from the screen (For Garbage collection purposes to avoid slowing down the game)
+        if (projectile.x + projectile.width <= 0) {
+          setTimeout(() => {
+            projectilesArray.splice(index, 1);
+          }, 0);
+          //? Condition to remove the projectile/fireball object from the array of projectiles whenever the fireball shot by Mario exits from the screen (For Garbage collection purposes to avoid slowing down the game)
+        } else if (projectile.x + projectile.width > canvas.width) {
+          setTimeout(() => {
+            projectilesArray.splice(index, 1);
+          }, 0);
+        } else projectile.update();
       });
       //? This condition below will accelerate the left and right control for Mario object player by increasing and decreasing the x velocity. To avoid keep on pressing the left and right controls many times.
       if (keys.mario.right.pressed) {
@@ -211,6 +222,7 @@ window.addEventListener('DOMContentLoaded', (e) => {
               }
             )
           );
+          console.log(projectilesArray);
           break;
         case 65:
           console.log('mario left');
