@@ -461,6 +461,8 @@ window.addEventListener('DOMContentLoaded', (e) => {
       luigi.position = luigiDefaultPosition;
       marioHealth = 5;
       luigiHealth = 5;
+      marioHealthBar.src = './images/5HB.png';
+      luigiHealthBar.src = './images/5HB.png';
       console.log(marioHealth);
     });
   }); //! END OF StartBtn CLICK EVENTLISTENER ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~>
