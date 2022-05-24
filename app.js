@@ -324,10 +324,8 @@ window.addEventListener('DOMContentLoaded', (e) => {
           break;
       }
     }
-    animate();
-    window.addEventListener('keydown', keyDownHandler); //! END OF KEYDOWN EVENTLISTENER ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~>
 
-    window.addEventListener('keyup', ({ keyCode }) => {
+    const keyUpHandler = ({keyCode}) => {
       switch (keyCode) {
         case 37:
           console.log('left');
@@ -386,6 +384,9 @@ window.addEventListener('DOMContentLoaded', (e) => {
         default:
           break;
       }
-    }); //! END OF KEYUP EVENTLISTENER ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~>
+    }
+    animate();
+    window.addEventListener('keydown', keyDownHandler);
+    window.addEventListener('keyup', keyUpHandler);
   }); //! END OF StartBtn CLICK EVENTLISTENER ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~>
 }); //! END OF DOMContentLoaded eventListener ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~>
