@@ -2,6 +2,8 @@ const canvas = document.querySelector('canvas');
 const c = canvas.getContext('2d');
 //* Hide the canvas in the intialize load of the game.
 canvas.classList.add('hidden');
+let marioHealth = 5;
+let luigiHealth = 5;
 const marioImg = new Image();
 const luigiImg = new Image();
 const marioFireball = new Image();
@@ -11,6 +13,7 @@ let marioBgMusic = new Audio('./sounds/mario-bg-music.mp3');
 let marioHitSound = new Audio('./sounds/mario-hit-sound.mp3');
 let luigiHitSound = new Audio('./sounds/luigi-hit-sound.wav');
 let marioJump = new Audio('./sounds/mario-jump.mp3');
+let pressStart = new Audio('./sounds/press-start.mp3');
 marioImg.src = './images/mario-front.png';
 luigiImg.src = './images/luigi-front.png';
 marioFireball.src = './images/fireball.png';
@@ -24,9 +27,10 @@ const projectilesArray = [];
 //? Use to the set the value of the player's gravity.
 const gravity = 0.5;
 
-
-
 window.addEventListener('DOMContentLoaded', (e) => {
+  startBtn.addEventListener('mouseover', (e) => {
+    pressStart.play();
+  });
   class Player {
     constructor(url, position, velocity, height, width) {
       this.url = url;
@@ -167,10 +171,17 @@ window.addEventListener('DOMContentLoaded', (e) => {
             projectilesArray.splice(index, 1);
           }, 0);
           console.log('Luigi got hit');
+          luigiHealth--;
           luigiImg.src = './images/luigi-hit.png';
           luigiHitSound.play();
           setTimeout(() => {
+            if (luigiHealth === 0) {
+              alert('Game Over! Mario WINS');
+            }
+          }, 200);
+          setTimeout(() => {
             luigiImg.src = './images/luigi-front.png';
+
             luigi.position.y = 0;
             luigi.position.x = 1800;
           }, 500);
@@ -187,8 +198,14 @@ window.addEventListener('DOMContentLoaded', (e) => {
             projectilesArray.splice(index, 1);
           }, 0);
           console.log('Mario got hit');
+          marioHealth--;
           marioImg.src = './images/mario-hit.png';
           marioHitSound.play();
+          setTimeout(() => {
+            if (marioHealth === 0) {
+              alert('Game Over! Luigi WINS');
+            }
+          }, 200);
           setTimeout(() => {
             marioImg.src = './images/mario-front.png';
             mario.position.y = 0;
