@@ -27,6 +27,8 @@ const fireballSound = new Audio('./sounds/fireball-sound.mp3');
 const hadouken = new Audio('./sounds/hadouken.mp3');
 
 let marioBgMusic = new Audio('./sounds/mario-bg-music.mp3');
+let gameOverMusic = new Audio('./sounds/gameover.wav');
+let thankYouMusic = new Audio('./sounds/thankyou.wav');
 let marioHitSound = new Audio('./sounds/mario-hit-sound.mp3');
 let luigiHitSound = new Audio('./sounds/luigi-hit-sound.wav');
 let marioJump = new Audio('./sounds/mario-jump.mp3');
@@ -223,6 +225,10 @@ window.addEventListener('DOMContentLoaded', (e) => {
           luigiHitSound.play();
           setTimeout(() => {
             if (luigiHealth === 0) {
+              gameOverMusic.play();
+              setTimeout(() => {
+                thankYouMusic.play();
+              }, 800)
               winingMessageText.innerHTML = 'Game Over! Mario Wins';
               winningMessage.classList.add('show');
               removeEventListener('keydown', keyDownHandler);
@@ -275,6 +281,10 @@ window.addEventListener('DOMContentLoaded', (e) => {
           marioHitSound.play();
           setTimeout(() => {
             if (marioHealth === 0) {
+              gameOverMusic.play();
+              setTimeout(() => {
+                thankYouMusic.play();
+              }, 800)
               winingMessageText.innerHTML = 'Game Over! Luigi Wins';
               winningMessage.classList.add('show');
               removeEventListener('keydown', keyDownHandler);
