@@ -137,7 +137,7 @@ window.addEventListener('DOMContentLoaded', (e) => {
   //* Instantiate Luigi object
   const luigi = new Player(
     luigiImg,
-    {x: 1750, y:0},
+    {x: 1650, y:0},
     { x: 0, y: 0 },
     200,
     200
@@ -227,7 +227,7 @@ window.addEventListener('DOMContentLoaded', (e) => {
             luigiImg.src = './images/luigi-front.png';
 
             luigi.position.y = 0;
-            luigi.position.x = 1750;
+            luigi.position.x = 1650;
           }, 500);
         }
 
@@ -457,7 +457,7 @@ window.addEventListener('DOMContentLoaded', (e) => {
       window.addEventListener('keydown', keyDownHandler);
       mario.position.x = 200;
       mario.position.y = 0;
-      luigi.position.x = 1750;
+      luigi.position.x = 1650;
       luigi.position.y = 0;
 
       marioHealth = 5;
