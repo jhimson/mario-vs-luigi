@@ -42,7 +42,7 @@ canvas.height = innerHeight;
 const projectilesArray = [];
 
 //? Use to the set the value of the player's gravity.
-const gravity = 0.5;
+let gravity = 0.6;
 
 window.addEventListener('DOMContentLoaded', (e) => {
   startBtn.addEventListener('mouseover', (e) => {
@@ -114,6 +114,9 @@ window.addEventListener('DOMContentLoaded', (e) => {
       left: {
         pressed: false,
       },
+      up: {
+        pressed: false,
+      },
     },
     luigi: {
       right: {
@@ -122,13 +125,16 @@ window.addEventListener('DOMContentLoaded', (e) => {
       left: {
         pressed: false,
       },
+      up: {
+        pressed: false,
+      },
     },
   };
 
   //* Instantiate Mario object
   const mario = new Player(
     marioImg,
-    {x: 200, y: 0},
+    { x: 200, y: 0 },
     { x: 0, y: 0 },
     200,
     200
@@ -137,7 +143,7 @@ window.addEventListener('DOMContentLoaded', (e) => {
   //* Instantiate Luigi object
   const luigi = new Player(
     luigiImg,
-    {x: 1650, y:0},
+    { x: 1650, y: 0 },
     { x: 0, y: 0 },
     200,
     200
@@ -159,6 +165,7 @@ window.addEventListener('DOMContentLoaded', (e) => {
       c.clearRect(0, 0, canvas.width, canvas.height);
       mario.update();
       luigi.update();
+
       // ! GARBAGE COLLECTION FUNCTIONALITY
       projectilesArray.forEach((projectile, index) => {
         //? Condition to remove the projectile/fireball object from the array of projectiles whenever the fireball shot by Luigi exits from the screen (For Garbage collection purposes to avoid slowing down the game)
@@ -277,11 +284,40 @@ window.addEventListener('DOMContentLoaded', (e) => {
           }, 200);
           setTimeout(() => {
             marioImg.src = './images/mario-front.png';
-            mario.position.y = 0;
+            mario.position.y = 200;
             mario.position.x = 200;
           }, 500);
         }
-      }); //! END OF FOREACH ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~>
+      }); //! END OF FOREACH COLLISITION DETECTION ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~>
+
+      //! COLLISITION DETECTION ON THE PLAYER AND CANVAS TO AVOID OVERLAPING ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~>
+      // TODO:
+      // console.log('luigi pos', luigi.position, luigi.velocity.x);
+      //? LUIGI CANVAS COLLISION DETECTION CONDITION
+      if (luigi.position.x >= 1720) {
+        keys.luigi.right.pressed = false;
+      } else if (luigi.position.x <= 0) {
+        keys.luigi.left.pressed = false;
+      } else if (luigi.position.y <= 0) {
+        console.log(luigi.position.y);
+        console.log('overlapping');
+        luigi.velocity.x = 0;
+        luigi.velocity.y = 1;
+      }
+
+      //? MARIO CANVAS COLLISION DETECTION CONDITION
+      if (mario.position.x >= 1720) {
+        keys.mario.right.pressed = false;
+      } else if (mario.position.x <= 0) {
+        keys.mario.left.pressed = false;
+      } else if (mario.position.y <= 0) {
+        console.log('overlapping');
+        mario.velocity.x = 0;
+        mario.velocity.y = 1;
+      } 
+      // ! END OF PLAYER -> CANVAS COLLISION DETECTION
+
+
       //? This condition below will accelerate the left and right control for Mario object player by increasing and decreasing the x velocity. To avoid keep on pressing the left and right controls many times.
       if (keys.mario.right.pressed) {
         mario.velocity = { ...mario.velocity, x: 5 };
@@ -317,7 +353,7 @@ window.addEventListener('DOMContentLoaded', (e) => {
           marioJump.play();
           console.log('Up');
           luigiImg.src = './images/luigi-fly.png';
-          luigi.velocity.y -= 20;
+          luigi.velocity.y = -20;
           break;
 
         case 17:
@@ -379,7 +415,7 @@ window.addEventListener('DOMContentLoaded', (e) => {
           marioJump.play();
           console.log('Up');
           marioImg.src = './images/mario-fly.png';
-          mario.velocity.y -= 20;
+          mario.velocity.y = -20;
           break;
 
         default:
