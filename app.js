@@ -58,6 +58,28 @@ window.addEventListener('DOMContentLoaded', (e) => {
     }
   } //! End of Player class ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~>
 
+  class Projectile {
+    constructor(url, x, y, width, height, velocity) {
+      this.url = url;
+      this.x = x;
+      this.y = y;
+      this.width = width;
+      this.height = height;
+      this.velocity = velocity;
+    }
+
+    draw() {
+      c.drawImage(this.url, this.x, this.y, this.width, this.height);
+      //
+    }
+
+    update() {
+      this.draw();
+      this.x = this.x + this.velocity.x;
+      this.y = this.y + this.velocity.y;
+    }
+  } // !End of Projectile Class ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~>
+
   const keys = {
     mario: {
       right: {
@@ -89,7 +111,7 @@ window.addEventListener('DOMContentLoaded', (e) => {
   //* Instantiate Luigi object
   const luigi = new Player(
     luigiImg,
-    { x: 1500, y: 100 },
+    { x: 1800, y: 100 },
     { x: 0, y: 0 },
     200,
     200
@@ -109,7 +131,6 @@ window.addEventListener('DOMContentLoaded', (e) => {
       c.clearRect(0, 0, canvas.width, canvas.height);
       mario.update();
       luigi.update();
-
       //? This condition below will accelerate the left and right control for Mario object player by increasing and decreasing the x velocity. To avoid keep on pressing the left and right controls many times.
       if (keys.mario.right.pressed) {
         mario.velocity = { ...mario.velocity, x: 5 };
