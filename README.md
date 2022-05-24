@@ -1,4 +1,4 @@
-### Project One
+### GA - Project One
 
 # Mario VS Luigi: The Epic battle of the Duo
 
