@@ -184,6 +184,8 @@ window.addEventListener('DOMContentLoaded', (e) => {
               winingMessageText.innerHTML = 'Game Over! Mario Wins';
               winningMessage.classList.add('show');
               removeEventListener('keydown', keyDownHandler);
+              marioBgMusic.pause();
+              marioBgMusic.currentTime = 0;
             }
           }, 200);
           setTimeout(() => {
@@ -213,6 +215,8 @@ window.addEventListener('DOMContentLoaded', (e) => {
               winingMessageText.innerHTML = 'Game Over! Luigi Wins';
               winningMessage.classList.add('show');
               removeEventListener('keydown', keyDownHandler);
+              marioBgMusic.pause();
+              marioBgMusic.currentTime = 0;
             }
           }, 200);
           setTimeout(() => {
@@ -390,6 +394,16 @@ window.addEventListener('DOMContentLoaded', (e) => {
     animate();
     window.addEventListener('keydown', keyDownHandler);
     window.addEventListener('keyup', keyUpHandler);
-    
+    // ! RESET GAME HANDLER!
+    restartButton.addEventListener('click', () => {
+      winningMessage.classList.remove('show');
+      marioBgMusic.play();
+      window.addEventListener('keydown', keyDownHandler);
+      mario.position = { x: 100, y: 0 };
+      luigi.position = { x: 1800, y: 0 };
+      marioHealth = 5;
+      luigiHealth = 5;
+      console.log(marioHealth);
+    });
   }); //! END OF StartBtn CLICK EVENTLISTENER ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~>
 }); //! END OF DOMContentLoaded eventListener ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~>
