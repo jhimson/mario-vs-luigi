@@ -40,8 +40,6 @@ const startBtn = document.getElementById('start-button');
 canvas.width = innerWidth;
 canvas.height = innerHeight;
 const projectilesArray = [];
-const marioDefaultPosition = { x: 200, y: 0 };
-const luigiDefaultPosition = { x: 1750, y: 0 };
 
 //? Use to the set the value of the player's gravity.
 const gravity = 0.5;
@@ -130,7 +128,7 @@ window.addEventListener('DOMContentLoaded', (e) => {
   //* Instantiate Mario object
   const mario = new Player(
     marioImg,
-    marioDefaultPosition,
+    {x: 200, y: 0},
     { x: 0, y: 0 },
     200,
     200
@@ -139,7 +137,7 @@ window.addEventListener('DOMContentLoaded', (e) => {
   //* Instantiate Luigi object
   const luigi = new Player(
     luigiImg,
-    luigiDefaultPosition,
+    {x: 1750, y:0},
     { x: 0, y: 0 },
     200,
     200
@@ -457,8 +455,11 @@ window.addEventListener('DOMContentLoaded', (e) => {
       winningMessage.classList.remove('show');
       marioBgMusic.play();
       window.addEventListener('keydown', keyDownHandler);
-      mario.position = marioDefaultPosition;
-      luigi.position = luigiDefaultPosition;
+      mario.position.x = 200;
+      mario.position.y = 0;
+      luigi.position.x = 1750;
+      luigi.position.y = 0;
+
       marioHealth = 5;
       luigiHealth = 5;
       marioHealthBar.src = './images/5HB.png';
