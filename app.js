@@ -2,6 +2,8 @@ const canvas = document.querySelector('canvas');
 const c = canvas.getContext('2d');
 //* Hide the canvas in the intialize load of the game.
 canvas.classList.add('hidden');
+let winningMessage = document.getElementById("winningMessage");
+let winingMessageText = document.querySelector('[data-winning-message-text]');
 let marioHealth = 5;
 let luigiHealth = 5;
 const marioImg = new Image();
@@ -9,6 +11,8 @@ const luigiImg = new Image();
 const marioFireball = new Image();
 const luigiFireball = new Image();
 const fireballSound = new Audio('./sounds/fireball-sound.mp3');
+const hadouken = new Audio('./sounds/hadouken.mp3');
+
 let marioBgMusic = new Audio('./sounds/mario-bg-music.mp3');
 let marioHitSound = new Audio('./sounds/mario-hit-sound.mp3');
 let luigiHitSound = new Audio('./sounds/luigi-hit-sound.wav');
@@ -176,7 +180,8 @@ window.addEventListener('DOMContentLoaded', (e) => {
           luigiHitSound.play();
           setTimeout(() => {
             if (luigiHealth === 0) {
-              alert('Game Over! Mario WINS');
+              winingMessageText.innerHTML = "Gamve Over! Mario Wins"
+              winningMessage.classList.add("show");
             }
           }, 200);
           setTimeout(() => {
@@ -203,7 +208,8 @@ window.addEventListener('DOMContentLoaded', (e) => {
           marioHitSound.play();
           setTimeout(() => {
             if (marioHealth === 0) {
-              alert('Game Over! Luigi WINS');
+              winingMessageText.innerHTML = "Gamve Over! Luigi Wins"
+              winningMessage.classList.add("show");
             }
           }, 200);
           setTimeout(() => {
@@ -272,7 +278,9 @@ window.addEventListener('DOMContentLoaded', (e) => {
           break;
 
         case 32:
-          fireballSound.play();
+          // fireballSound.play();
+          hadouken.play();
+
           console.log('shooot');
           marioImg.src = './images/mario-fireball-2.png';
           projectilesArray.push(
