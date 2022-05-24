@@ -6,6 +6,17 @@ let winningMessage = document.getElementById('winningMessage');
 let winingMessageText = document.querySelector('[data-winning-message-text]');
 let restartButton = document.getElementById('restartButton');
 let introImage = document.getElementById('intro');
+let healthContainer = document.querySelector('.health-container');
+let marioHealthBar = document.getElementById('mario-hb');
+let luigiHealthBar = document.getElementById('luigi-hb');
+marioHealthBar.src = './images/5HB.png';
+marioHealthBar.height = '200';
+marioHealthBar.width = '200';
+luigiHealthBar.src = './images/5HB.png';
+luigiHealthBar.height = '200';
+luigiHealthBar.width = '200';
+healthContainer.classList.add('hidden');
+
 let marioHealth = 5;
 let luigiHealth = 5;
 const marioImg = new Image();
@@ -29,8 +40,8 @@ const startBtn = document.getElementById('start-button');
 canvas.width = innerWidth;
 canvas.height = innerHeight;
 const projectilesArray = [];
-const marioDefaultPosition = { x: 100, y: 0 };
-const luigiDefaultPosition = { x: 1600, y: 0 };
+const marioDefaultPosition = { x: 200, y: 0 };
+const luigiDefaultPosition = { x: 1750, y: 0 };
 
 //? Use to the set the value of the player's gravity.
 const gravity = 0.5;
@@ -141,6 +152,7 @@ window.addEventListener('DOMContentLoaded', (e) => {
     introImage.classList.add('hidden');
     mario.position.y = 0;
     luigi.position.y = 0;
+    healthContainer.classList.remove('hidden');
 
     //? A Function to constantly render the players and fireballs using the requestAnimationFrame built in function (Works the same as a recursion).
     //? Invokes the update method for each player to constantly display the changes on the players' position.
@@ -181,6 +193,27 @@ window.addEventListener('DOMContentLoaded', (e) => {
           }, 0);
           console.log('Luigi got hit');
           luigiHealth--;
+          // ? Switch case use to update luigi's health bar image according to luigiHealth value
+          switch (luigiHealth) {
+            case 4:
+              luigiHealthBar.src = './images/4HB.png';
+              break;
+            case 3:
+              luigiHealthBar.src = './images/3HB.png';
+              break;
+            case 2:
+              luigiHealthBar.src = './images/2HB.png';
+              break;
+            case 1:
+              luigiHealthBar.src = './images/1HB.png';
+              break;
+            case 0:
+              luigiHealthBar.src = './images/0HB.png';
+              break;
+
+            default:
+              break;
+          }
           luigiImg.src = './images/luigi-hit.png';
           luigiHitSound.play();
           setTimeout(() => {
@@ -196,7 +229,7 @@ window.addEventListener('DOMContentLoaded', (e) => {
             luigiImg.src = './images/luigi-front.png';
 
             luigi.position.y = 0;
-            luigi.position.x = 1600;
+            luigi.position.x = 1750;
           }, 500);
         }
 
@@ -212,6 +245,27 @@ window.addEventListener('DOMContentLoaded', (e) => {
           }, 0);
           console.log('Mario got hit');
           marioHealth--;
+          // ? Switch case use to update luigi's health bar image according to luigiHealth value
+          switch (marioHealth) {
+            case 4:
+              marioHealthBar.src = './images/4HB.png';
+              break;
+            case 3:
+              marioHealthBar.src = './images/3HB.png';
+              break;
+            case 2:
+              marioHealthBar.src = './images/2HB.png';
+              break;
+            case 1:
+              marioHealthBar.src = './images/1HB.png';
+              break;
+            case 0:
+              marioHealthBar.src = './images/0HB.png';
+              break;
+
+            default:
+              break;
+          }
           marioImg.src = './images/mario-hit.png';
           marioHitSound.play();
           setTimeout(() => {
@@ -226,7 +280,7 @@ window.addEventListener('DOMContentLoaded', (e) => {
           setTimeout(() => {
             marioImg.src = './images/mario-front.png';
             mario.position.y = 0;
-            mario.position.x = 100;
+            mario.position.x = 200;
           }, 500);
         }
       }); //! END OF FOREACH ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~>

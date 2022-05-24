@@ -8,10 +8,6 @@ body {
   background-size: 100% 100%;
 }
 
-.hidden {
-  display: none;
-}
-
 .photo-container {
   width: 100vw;
   height: 100vh;
@@ -72,4 +68,15 @@ body {
 
 .winning-message.show {
   display: flex;
+}
+
+.health-container {
+  display: flex;
+  position: absolute;
+  top: -15px;
+  gap: 82em;
+}
+
+.hidden {
+  display: none;
 }
