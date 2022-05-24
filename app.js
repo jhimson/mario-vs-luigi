@@ -183,6 +183,7 @@ window.addEventListener('DOMContentLoaded', (e) => {
             if (luigiHealth === 0) {
               winingMessageText.innerHTML = 'Game Over! Mario Wins';
               winningMessage.classList.add('show');
+              removeEventListener('keydown', keyDownHandler);
             }
           }, 200);
           setTimeout(() => {
@@ -210,7 +211,8 @@ window.addEventListener('DOMContentLoaded', (e) => {
           setTimeout(() => {
             if (marioHealth === 0) {
               winingMessageText.innerHTML = 'Game Over! Luigi Wins';
-              winningMessage.classList.add('show');              
+              winningMessage.classList.add('show');
+              removeEventListener('keydown', keyDownHandler);
             }
           }, 200);
           setTimeout(() => {
@@ -235,7 +237,7 @@ window.addEventListener('DOMContentLoaded', (e) => {
       } else luigi.velocity = { ...luigi.velocity, x: 0 };
     }; //! END OF ANIMATE FUNCTION ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~>
 
-    const keyDownHandler = ({keyCode}) => {
+    const keyDownHandler = ({ keyCode }) => {
       switch (keyCode) {
         case 37:
           console.log('left');
@@ -323,9 +325,9 @@ window.addEventListener('DOMContentLoaded', (e) => {
         default:
           break;
       }
-    }
+    };
 
-    const keyUpHandler = ({keyCode}) => {
+    const keyUpHandler = ({ keyCode }) => {
       switch (keyCode) {
         case 37:
           console.log('left');
@@ -384,9 +386,10 @@ window.addEventListener('DOMContentLoaded', (e) => {
         default:
           break;
       }
-    }
+    };
     animate();
     window.addEventListener('keydown', keyDownHandler);
     window.addEventListener('keyup', keyUpHandler);
+    
   }); //! END OF StartBtn CLICK EVENTLISTENER ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~>
 }); //! END OF DOMContentLoaded eventListener ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~>
