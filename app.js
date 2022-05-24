@@ -2,8 +2,9 @@ const canvas = document.querySelector('canvas');
 const c = canvas.getContext('2d');
 //* Hide the canvas in the intialize load of the game.
 canvas.classList.add('hidden');
-let winningMessage = document.getElementById("winningMessage");
+let winningMessage = document.getElementById('winningMessage');
 let winingMessageText = document.querySelector('[data-winning-message-text]');
+let restartButton = document.getElementById('restartButton');
 let marioHealth = 5;
 let luigiHealth = 5;
 const marioImg = new Image();
@@ -180,8 +181,8 @@ window.addEventListener('DOMContentLoaded', (e) => {
           luigiHitSound.play();
           setTimeout(() => {
             if (luigiHealth === 0) {
-              winingMessageText.innerHTML = "Gamve Over! Mario Wins"
-              winningMessage.classList.add("show");
+              winingMessageText.innerHTML = 'Game Over! Mario Wins';
+              winningMessage.classList.add('show');
             }
           }, 200);
           setTimeout(() => {
@@ -208,8 +209,8 @@ window.addEventListener('DOMContentLoaded', (e) => {
           marioHitSound.play();
           setTimeout(() => {
             if (marioHealth === 0) {
-              winingMessageText.innerHTML = "Gamve Over! Luigi Wins"
-              winningMessage.classList.add("show");
+              winingMessageText.innerHTML = 'Game Over! Luigi Wins';
+              winningMessage.classList.add('show');              
             }
           }, 200);
           setTimeout(() => {
@@ -234,9 +235,7 @@ window.addEventListener('DOMContentLoaded', (e) => {
       } else luigi.velocity = { ...luigi.velocity, x: 0 };
     }; //! END OF ANIMATE FUNCTION ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~>
 
-    animate();
-    window.addEventListener('keydown', ({ keyCode }) => {
-      console.log(keyCode);
+    const keyDownHandler = ({keyCode}) => {
       switch (keyCode) {
         case 37:
           console.log('left');
@@ -324,7 +323,9 @@ window.addEventListener('DOMContentLoaded', (e) => {
         default:
           break;
       }
-    }); //! END OF KEYDOWN EVENTLISTENER ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~>
+    }
+    animate();
+    window.addEventListener('keydown', keyDownHandler); //! END OF KEYDOWN EVENTLISTENER ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~>
 
     window.addEventListener('keyup', ({ keyCode }) => {
       switch (keyCode) {
