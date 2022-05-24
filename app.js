@@ -8,6 +8,8 @@ const marioFireball = new Image();
 const luigiFireball = new Image();
 const fireballSound = new Audio('./sounds/fireball-sound.mp3');
 let marioBgMusic = new Audio('./sounds/mario-bg-music.mp3');
+let marioHitSound = new Audio('./sounds/mario-hit-sound.mp3');
+let luigiHitSound = new Audio('./sounds/luigi-hit-sound.wav');
 let marioJump = new Audio('./sounds/mario-jump.mp3');
 marioImg.src = './images/mario-front.png';
 luigiImg.src = './images/luigi-front.png';
@@ -21,6 +23,8 @@ const projectilesArray = [];
 
 //? Use to the set the value of the player's gravity.
 const gravity = 0.5;
+
+
 
 window.addEventListener('DOMContentLoaded', (e) => {
   class Player {
@@ -119,7 +123,7 @@ window.addEventListener('DOMContentLoaded', (e) => {
   );
 
   startBtn.addEventListener('click', (e) => {
-    // marioBgMusic.play();
+    marioBgMusic.play();
     canvas.classList.remove('hidden');
     startBtn.classList.add('hidden');
     mario.position.y = 0;
@@ -146,6 +150,42 @@ window.addEventListener('DOMContentLoaded', (e) => {
           }, 0);
         } else projectile.update();
       });
+
+      //! COLLISION FUNCTIONALITY
+      projectilesArray.forEach((projectile, index) => {
+        //? Added 70 to the y position of luigi in the condition below to avoid collision when the fireball is very near the head of Luigi
+
+        //? Deducted 70 to the y position of luigi in the condition below to avoid collision when the fireball is very near the foot of Luigi
+        if (
+          projectile.x + projectile.width >= luigi.position.x &&
+          projectile.x <= luigi.position.x + luigi.width &&
+          projectile.y + projectile.height >= luigi.position.y + 70 &&
+          projectile.y <= luigi.position.y - 70 + luigi.height
+        ) {
+          // ? Removes the fireball projectile from the screen when it hits luigi
+          setTimeout(() => {
+            projectilesArray.splice(index, 1);
+          }, 0);
+          console.log('Luigi got hit');
+          luigiImg.src = './images/luigi-hit.png';
+          luigiHitSound.play();
+        }
+
+        if (
+          projectile.x + projectile.width >= mario.position.x &&
+          projectile.x <= mario.position.x + mario.width &&
+          projectile.y + projectile.height >= mario.position.y + 70 &&
+          projectile.y <= mario.position.y - 70 + mario.height
+        ) {
+          // ? Removes the fireball projectile from the screen when it hits mario
+          setTimeout(() => {
+            projectilesArray.splice(index, 1);
+          }, 0);
+          console.log('Mario got hit');
+          marioImg.src = './images/mario-hit.png';
+          marioHitSound.play();
+        }
+      }); //! END OF FOREACH ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~>
       //? This condition below will accelerate the left and right control for Mario object player by increasing and decreasing the x velocity. To avoid keep on pressing the left and right controls many times.
       if (keys.mario.right.pressed) {
         mario.velocity = { ...mario.velocity, x: 5 };
