@@ -119,6 +119,9 @@ window.addEventListener('DOMContentLoaded', (e) => {
       up: {
         pressed: false,
       },
+      shoot: {
+        pressed: false,
+      },
     },
     luigi: {
       right: {
@@ -129,6 +132,9 @@ window.addEventListener('DOMContentLoaded', (e) => {
       },
       up: {
         pressed: false,
+      },
+      shoot: {
+        pressed: true,
       },
     },
   };
@@ -228,7 +234,7 @@ window.addEventListener('DOMContentLoaded', (e) => {
               gameOverMusic.play();
               setTimeout(() => {
                 thankYouMusic.play();
-              }, 800)
+              }, 800);
               winingMessageText.innerHTML = 'Game Over! Mario Wins';
               winningMessage.classList.add('show');
               removeEventListener('keydown', keyDownHandler);
@@ -284,7 +290,7 @@ window.addEventListener('DOMContentLoaded', (e) => {
               gameOverMusic.play();
               setTimeout(() => {
                 thankYouMusic.play();
-              }, 800)
+              }, 800);
               winingMessageText.innerHTML = 'Game Over! Luigi Wins';
               winningMessage.classList.add('show');
               removeEventListener('keydown', keyDownHandler);
@@ -324,9 +330,8 @@ window.addEventListener('DOMContentLoaded', (e) => {
         console.log('overlapping');
         mario.velocity.x = 0;
         mario.velocity.y = 1;
-      } 
+      }
       // ! END OF PLAYER -> CANVAS COLLISION DETECTION
-
 
       //? This condition below will accelerate the left and right control for Mario object player by increasing and decreasing the x velocity. To avoid keep on pressing the left and right controls many times.
       if (keys.mario.right.pressed) {
@@ -381,7 +386,7 @@ window.addEventListener('DOMContentLoaded', (e) => {
               { x: -10, y: 0 }
             )
           );
-          console.log(projectilesArray);
+
           break;
 
         case 32:
