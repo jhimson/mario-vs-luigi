@@ -32,13 +32,13 @@ Mario and Luigi had a misunderstanding and resulted into challenging each other 
 ![Page 1](https://user-images.githubusercontent.com/42398487/169837028-52f56554-d42c-47df-81a0-348c40e4c7ba.png)
 
 
-
-![Page 2](https://user-images.githubusercontent.com/42398487/169837058-d51e89e2-b639-4383-95dc-d4907629c443.png)
-
+![Page 2](https://user-images.githubusercontent.com/42398487/170131081-2f988661-ebe6-477c-915a-947e3df1acc0.png)
 
 
-![page 3](https://user-images.githubusercontent.com/42398487/169837070-9c819042-2ea7-4d99-8356-d3831fef11d6.png)
+![page 3](https://user-images.githubusercontent.com/42398487/170131112-76a53e19-f364-43fa-ae37-96ed90170cee.png)
 
 
+![page 4](https://user-images.githubusercontent.com/42398487/170131969-35339b3d-8c75-47ca-9342-49fba62d23d4.png)
 
-![page 4](https://user-images.githubusercontent.com/42398487/169837372-f7a3adf2-1614-4080-9e0b-207490d9c20d.png)
+
+![page 5](https://user-images.githubusercontent.com/42398487/170131984-4f539ebb-f085-4894-a047-ddb511f9205f.png)
