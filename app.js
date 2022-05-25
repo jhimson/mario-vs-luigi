@@ -44,7 +44,7 @@ canvas.width = innerWidth;
 canvas.height = innerHeight;
 const projectilesArray = [];
 
-//? Use to the set the value of the player's gravity.
+//? Use to the set the value of the player's gravity to avoid jumping soo high.
 let gravity = 0.6;
 
 window.addEventListener('DOMContentLoaded', (e) => {
@@ -120,9 +120,6 @@ window.addEventListener('DOMContentLoaded', (e) => {
       up: {
         pressed: false,
       },
-      shoot: {
-        pressed: false,
-      },
     },
     luigi: {
       right: {
@@ -133,9 +130,6 @@ window.addEventListener('DOMContentLoaded', (e) => {
       },
       up: {
         pressed: false,
-      },
-      shoot: {
-        pressed: true,
       },
     },
   };
@@ -349,6 +343,8 @@ window.addEventListener('DOMContentLoaded', (e) => {
       } else luigi.velocity = { ...luigi.velocity, x: 0 };
     }; //! END OF ANIMATE FUNCTION ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~>
 
+
+    // ? Use to handle event when the users presses the key for player controls
     const keyDownHandler = ({ keyCode }) => {
       switch (keyCode) {
         case 37:
@@ -399,6 +395,7 @@ window.addEventListener('DOMContentLoaded', (e) => {
       }
     };
 
+    // ? Use to handle event when the users releases the key being pressed for player controls
     const keyUpHandler = ({ keyCode }) => {
       switch (keyCode) {
         case 37:
