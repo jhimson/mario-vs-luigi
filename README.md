@@ -4,7 +4,7 @@
 
 ### Premise
 
-Mario and Luigi had a misunderstanding and resulted into challenging each other into a fireball fight!
+Mario and Luigi have been bestfriends for a very long time until they had a serious misunderstanding and resulted into challenging each other into a fireball fight!
 
 ### User Story
 
