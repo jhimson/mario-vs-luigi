@@ -19,6 +19,7 @@ healthContainer.classList.add('hidden');
 
 let marioHealth = 5;
 let luigiHealth = 5;
+
 const marioImg = new Image();
 const luigiImg = new Image();
 const marioFireball = new Image();
@@ -371,46 +372,6 @@ window.addEventListener('DOMContentLoaded', (e) => {
           luigi.velocity.y = -20;
           break;
 
-        case 17:
-          fireballSound.play();
-          console.log('Luigi Shoot');
-          luigiImg.src = './images/luigi-shoot-2.png';
-          projectilesArray.push(
-            new Projectile(
-              luigiFireball,
-              //? The x position of the fireball has to be less than the current position of luigi to avoid instant self collision of the fireball when luigi shoots it to Mario. (luigi.position.x - luigi.width)
-              luigi.position.x - luigi.width,
-              luigi.position.y,
-              200,
-              200,
-              { x: -10, y: 0 }
-            )
-          );
-
-          break;
-
-        case 32:
-          // fireballSound.play();
-          hadouken.play();
-
-          console.log('shooot');
-          marioImg.src = './images/mario-fireball-2.png';
-          projectilesArray.push(
-            //? The x position of the fireball has to be greather than the current position of Mario to avoid instant self collision of the fireball when Mario shoots it to Luigi. (luigi.position.x - luigi.width)
-            new Projectile(
-              marioFireball,
-              mario.position.x + mario.width,
-              mario.position.y,
-              200,
-              200,
-              {
-                x: 10,
-                y: 0,
-              }
-            )
-          );
-          console.log(projectilesArray);
-          break;
         case 65:
           console.log('mario left');
           marioImg.src = './images/mario-left.png';
@@ -460,7 +421,20 @@ window.addEventListener('DOMContentLoaded', (e) => {
           break;
 
         case 17:
-          console.log('Shoot');
+          fireballSound.play();
+          console.log('Luigi Shoot');
+          luigiImg.src = './images/luigi-shoot-2.png';
+          projectilesArray.push(
+            new Projectile(
+              luigiFireball,
+              //? The x position of the fireball has to be less than the current position of luigi to avoid instant self collision of the fireball when luigi shoots it to Mario. (luigi.position.x - luigi.width)
+              luigi.position.x - luigi.width,
+              luigi.position.y,
+              200,
+              200,
+              { x: -10, y: 0 }
+            )
+          );
           setTimeout(() => {
             luigiImg.src = './images/luigi-front.png';
           }, 500);
@@ -489,6 +463,23 @@ window.addEventListener('DOMContentLoaded', (e) => {
 
         case 32:
           console.log('Shoot');
+          hadouken.play();
+          marioImg.src = './images/mario-fireball-2.png';
+          projectilesArray.push(
+            //? The x position of the fireball has to be greather than the current position of Mario to avoid instant self collision of the fireball when Mario shoots it to Luigi. (luigi.position.x - luigi.width)
+            new Projectile(
+              marioFireball,
+              mario.position.x + mario.width,
+              mario.position.y,
+              200,
+              200,
+              {
+                x: 10,
+                y: 0,
+              }
+            )
+          );
+          console.log(projectilesArray);
           setTimeout(() => {
             marioImg.src = './images/mario-front.png';
           }, 500);
