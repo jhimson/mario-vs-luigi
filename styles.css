@@ -12,8 +12,22 @@ body {
   width: 100vw;
   height: 100vh;
   display: flex;
+  flex-direction: column;
   align-items: center;
   justify-content: center;
+}
+
+#instructions {
+  position: absolute;
+  color: white;
+  background-color: gray;
+  padding: 10px 30px;
+  top: 680px;
+  opacity: 0.9;
+}
+
+#instructions > h1 {
+  text-align: center;
 }
 
 #intro {
