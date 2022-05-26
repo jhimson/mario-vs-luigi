@@ -3,6 +3,7 @@ const c = canvas.getContext('2d');
 //* Hide the canvas in the intialize load of the game.
 canvas.classList.add('hidden');
 let winningMessage = document.getElementById('winningMessage');
+let instructionMsg = document.getElementById('instructions');
 let winingMessageText = document.querySelector('[data-winning-message-text]');
 let restartButton = document.getElementById('restartButton');
 let introImage = document.getElementById('intro');
@@ -157,6 +158,7 @@ window.addEventListener('DOMContentLoaded', (e) => {
     canvas.classList.remove('hidden');
     startBtn.classList.add('hidden');
     introImage.classList.add('hidden');
+    instructionMsg.classList.add('hidden');
     mario.position.y = 0;
     luigi.position.y = 0;
     healthContainer.classList.remove('hidden');
@@ -342,7 +344,6 @@ window.addEventListener('DOMContentLoaded', (e) => {
         luigi.velocity = { ...luigi.velocity, x: -5 };
       } else luigi.velocity = { ...luigi.velocity, x: 0 };
     }; //! END OF ANIMATE FUNCTION ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~>
-
 
     // ? Use to handle event when the users presses the key for player controls
     const keyDownHandler = ({ keyCode }) => {
