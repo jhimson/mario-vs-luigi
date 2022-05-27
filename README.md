@@ -12,12 +12,12 @@ Mario and Luigi have been bestfriends for a very long time until they had a seri
 
 - Be able to click on the start game button
 - See the player one and two on the opposite side
-- See the current lifebar / HP Status of the players (5 lifebars is the default)
+- See the current health bars / HP Status of the players (5 health bars is the default)
 - Player can move up, down, left and right
 - Player can shoot fireballs to the opponent
 - Player can move to dodge the fireballs shot by the opponent
-- See the fireballs being shot by the players.
-- Receive a win message after hitting the opponent with one lifebar left
+- See the fireballs being shot by the players
+- Receive a win message when one of the player losses all of their health bars
 - See an option to play again and have the game reset when option got selected
 
 ### How to play the game
