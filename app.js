@@ -505,6 +505,8 @@ window.addEventListener('DOMContentLoaded', (e) => {
       winningMessage.classList.remove('show');
       marioBgMusic.play();
       window.addEventListener('keydown', keyDownHandler);
+      window.addEventListener('keyup', keyUpHandler);
+
       mario.position.x = 200;
       mario.position.y = 0;
       luigi.position.x = 1650;
