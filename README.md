@@ -4,7 +4,7 @@
 
 # Mario VS Luigi: The Epic battle of the Duo
 
-[Mario vs Luigi](https://jhimson.github.io/mario-vs-luigi/)
+[Launch the game](https://jhimson.github.io/mario-vs-luigi/)
 
 ### Premise
 
