@@ -52,6 +52,7 @@ window.addEventListener('DOMContentLoaded', (e) => {
   startBtn.addEventListener('mouseover', (e) => {
     pressStart.play();
   });
+  
   class Player {
     constructor(url, position, velocity, height, width) {
       this.url = url;
@@ -203,6 +204,7 @@ window.addEventListener('DOMContentLoaded', (e) => {
           }, 0);
           console.log('Luigi got hit');
           luigiHealth--;
+          
           // ? Switch case use to update luigi's health bar image according to luigiHealth value
           switch (luigiHealth) {
             case 4:
@@ -226,6 +228,7 @@ window.addEventListener('DOMContentLoaded', (e) => {
           }
           luigiImg.src = './images/luigi-hit.png';
           luigiHitSound.play();
+
           setTimeout(() => {
             if (luigiHealth === 0) {
               gameOverMusic.play();
@@ -235,10 +238,12 @@ window.addEventListener('DOMContentLoaded', (e) => {
               winingMessageText.innerHTML = 'Game Over! Mario Wins';
               winningMessage.classList.add('show');
               removeEventListener('keydown', keyDownHandler);
+              removeEventListener('keyup', keyUpHandler);
               marioBgMusic.pause();
               marioBgMusic.currentTime = 0;
             }
           }, 200);
+
           setTimeout(() => {
             luigiImg.src = './images/luigi-front.png';
 
@@ -257,6 +262,7 @@ window.addEventListener('DOMContentLoaded', (e) => {
           setTimeout(() => {
             projectilesArray.splice(index, 1);
           }, 0);
+
           console.log('Mario got hit');
           marioHealth--;
           // ? Switch case use to update luigi's health bar image according to luigiHealth value
@@ -282,6 +288,7 @@ window.addEventListener('DOMContentLoaded', (e) => {
           }
           marioImg.src = './images/mario-hit.png';
           marioHitSound.play();
+
           setTimeout(() => {
             if (marioHealth === 0) {
               gameOverMusic.play();
@@ -291,10 +298,12 @@ window.addEventListener('DOMContentLoaded', (e) => {
               winingMessageText.innerHTML = 'Game Over! Luigi Wins';
               winningMessage.classList.add('show');
               removeEventListener('keydown', keyDownHandler);
+              removeEventListener('keyup', keyUpHandler);
               marioBgMusic.pause();
               marioBgMusic.currentTime = 0;
             }
           }, 200);
+          
           setTimeout(() => {
             marioImg.src = './images/mario-front.png';
             mario.position.y = 200;
@@ -304,8 +313,6 @@ window.addEventListener('DOMContentLoaded', (e) => {
       }); //! END OF FOREACH COLLISITION DETECTION ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~>
 
       //! COLLISITION DETECTION ON THE PLAYER AND CANVAS TO AVOID OVERLAPING ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~>
-      // TODO:
-      // console.log('luigi pos', luigi.position, luigi.velocity.x);
       //? LUIGI CANVAS COLLISION DETECTION CONDITION
       if (luigi.position.x >= 1720) {
         keys.luigi.right.pressed = false;
