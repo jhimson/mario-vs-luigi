@@ -1,7 +1,3 @@
-### GA - Project One
-
-
-
 # Mario VS Luigi: The Epic battle of the Duo
 
 [Launch the game](https://jhimson.github.io/mario-vs-luigi/)
