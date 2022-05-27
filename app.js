@@ -487,9 +487,12 @@ window.addEventListener('DOMContentLoaded', (e) => {
           break;
       }
     };
+
+    
     animate();
     window.addEventListener('keydown', keyDownHandler);
     window.addEventListener('keyup', keyUpHandler);
+
     // ! RESET GAME HANDLER!
     restartButton.addEventListener('click', () => {
       winningMessage.classList.remove('show');
@@ -505,6 +508,6 @@ window.addEventListener('DOMContentLoaded', (e) => {
       marioHealthBar.src = './images/5HB.png';
       luigiHealthBar.src = './images/5HB.png';
       console.log(marioHealth);
-    });
+    }); //! END OF restartButton function ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~>
   }); //! END OF StartBtn CLICK EVENTLISTENER ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~>
 }); //! END OF DOMContentLoaded eventListener ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~>
