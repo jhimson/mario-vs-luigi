@@ -1,5 +1,7 @@
 ### GA - Project One
 
+[Mario vs Luigi](https://jhimson.github.io/mario-vs-luigi/)
+
 # Mario VS Luigi: The Epic battle of the Duo
 
 ### Premise
