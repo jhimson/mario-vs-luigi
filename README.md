@@ -28,7 +28,7 @@ Mario and Luigi have been bestfriends for a very long time until they had a seri
 
 - Use W-A-S-D Keys to move the player Mario and Space to shoot a fireball.
 - Use Left-Right-Up-Down arrow keys to move the player Luigi and Ctrl key to shoot a fireball.
-- Each player has 5 lives, whoever losses all of their lives will lose the game.
+- Each player has 5 health bars, whoever losses all of their health bars will lose the game.
 
 ### Technologies Used
 
